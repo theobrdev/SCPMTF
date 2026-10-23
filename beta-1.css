@@ -1,0 +1,91 @@
+:root {
+  --metal: #2a2e35;
+  --osso: #efebe4;
+  --tinta: #1f2227;
+  --tinta-suave: #5b5f66;
+  --brasa: #d9531e;
+  --brasa-escura: #a83a10;
+  --fonte-titulo: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  background: var(--metal);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+a { color: var(--brasa-escura); }
+a:hover { color: var(--tinta); }
+a:focus-visible { outline: 3px solid var(--brasa); outline-offset: 2px; }
+
+.voltar { max-width: 820px; margin: 0 auto 12px; font-size: 0.9rem; }
+.voltar a { color: #d6d9de; }
+.voltar a:hover { color: #fff; }
+
+/* Painel claro com a base "queimada": brasa que sobe e some */
+.painel {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 40px 56px;
+  background:
+    linear-gradient(to top, rgba(217, 83, 30, 0.45), rgba(217, 83, 30, 0) 90px) bottom / 100% 90px no-repeat,
+    var(--osso);
+  border-bottom: 6px solid var(--brasa);
+  box-shadow: 0 8px 28px rgba(217, 83, 30, 0.25);
+}
+
+.cabecalho { text-align: center; margin-bottom: 24px; }
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--brasa);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 7.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+}
+h1 span { display: block; margin-top: 4px; color: var(--brasa-escura); font-weight: 400; font-style: italic; }
+
+h2 {
+  margin: 32px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--brasa);
+  font-family: var(--fonte-titulo);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+p { max-width: 68ch; margin: 0 0 1em; }
+.missao { margin-inline: auto; }
+
+.entradas, .relatorios { margin: 12px 0 0; padding-left: 1.25rem; line-height: 1.5; }
+.entradas { columns: 2 220px; column-gap: 28px; }
+.entradas li, .relatorios li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--brasa); }
+.relatorios ul { margin: 6px 0 12px; padding-left: 1.5rem; }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.8rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 0 32px; }
+  .voltar { padding: 0 16px; }
+  .painel { padding: 28px 20px 52px; }
+}

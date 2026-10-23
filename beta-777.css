@@ -1,0 +1,98 @@
+:root {
+  --breu: #14101a;
+  --pergaminho: #ebe0c6;
+  --tinta: #2a1d14;
+  --tinta-suave: #5d4a3a;
+  --bordo: #7a1d2a;
+  --ouro: #b88a2c;
+  --fonte-titulo: "IM Fell English", Georgia, "Times New Roman", serif;
+  --fonte-texto: "EB Garamond", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  background: var(--breu);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+a { color: var(--bordo); }
+a:hover { color: var(--tinta); }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--ouro); outline-offset: 2px; }
+
+.voltar { max-width: 840px; margin: 0 auto 12px; font-size: 1rem; }
+.voltar a { color: #d9c9a0; }
+.voltar a:hover { color: #fff; }
+
+/* Pergaminho com moldura dupla, ouro por fora e tinta por dentro */
+.painel {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 40px 48px 44px;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(255, 255, 255, 0.35), transparent 60%),
+    var(--pergaminho);
+  border: 3px double var(--ouro);
+  outline: 1px solid var(--tinta-suave);
+  outline-offset: -14px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+}
+
+.cabecalho { text-align: center; margin-bottom: 24px; }
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--ouro);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 7.5vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+h1 span { display: block; margin-top: 4px; color: var(--bordo); font-style: italic; }
+
+h2 {
+  margin: 34px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--tinta-suave);
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+p { max-width: 62ch; margin: 0 0 1em; }
+.missao { margin-inline: auto; }
+
+summary { cursor: pointer; color: var(--bordo); width: fit-content; }
+summary:hover { text-decoration: underline; }
+details > summary .fechar { display: none; }
+details[open] > summary .abrir { display: none; }
+details[open] > summary .fechar { display: inline; }
+
+.entradas, .relatorios { margin: 12px 0 0; padding-left: 1.25rem; line-height: 1.45; }
+.entradas { columns: 3 150px; column-gap: 28px; }
+.entradas li, .relatorios li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--ouro); }
+.relatorios ul { margin: 6px 0 12px; padding-left: 1.5rem; }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.9rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 8px 32px; font-size: 1.1rem; }
+  .painel { padding: 30px 24px 32px; }
+}

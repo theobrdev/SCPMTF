@@ -1,0 +1,97 @@
+:root {
+  --noite: #0d1520;
+  --painel: #162232;
+  --linha: #2c3e55;
+  --ambar: #e8a33d;
+  --ambar-claro: #f6c873;
+  --osso: #efe8da;
+  --osso-suave: #b4b8be;
+  --fonte-titulo: "Cormorant Garamond", Garamond, "Times New Roman", serif;
+  --fonte-texto: "Spectral", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  min-height: 100vh;
+  /* luz do amanhecer atrás do painel */
+  background: var(--noite) radial-gradient(ellipse 80% 340px at 50% 0, rgba(232, 163, 61, 0.28), transparent 70%) no-repeat;
+  color: var(--osso);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+a { color: var(--ambar-claro); }
+a:hover { color: #fff; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--ambar); outline-offset: 2px; }
+
+.voltar { max-width: 880px; margin: 0 auto 12px; font-size: 0.9rem; }
+
+.painel {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 44px 40px;
+  background: var(--painel);
+  border: 1px solid var(--linha);
+  border-bottom: 4px solid var(--ambar);
+}
+
+.cabecalho { text-align: center; margin-bottom: 24px; }
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--ambar), 0 0 32px rgba(232, 163, 61, 0.45);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.25rem, 8vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+h1 span { display: block; margin-top: 4px; color: var(--ambar-claro); font-weight: 600; }
+
+h2 {
+  margin: 36px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--linha);
+  font-family: var(--fonte-titulo);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+p { max-width: 68ch; margin: 0 0 1em; }
+.missao { margin-inline: auto; }
+
+summary { cursor: pointer; color: var(--ambar-claro); width: fit-content; }
+summary:hover { text-decoration: underline; }
+details > summary .fechar { display: none; }
+details[open] > summary .abrir { display: none; }
+details[open] > summary .fechar { display: inline; }
+
+.entradas, .relatorios { margin: 12px 0 0; padding-left: 1.25rem; line-height: 1.5; }
+.entradas { columns: 3 150px; column-gap: 28px; }
+.entradas li, .relatorios li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--ambar); }
+
+.relatorios { columns: 1; }
+.relatorios ul { margin: 6px 0 12px; padding-left: 1.5rem; columns: 2 280px; column-gap: 28px; }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.8rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 0 32px; }
+  .voltar { padding: 0 16px; }
+  .painel { padding: 26px 20px 30px; border-left: 0; border-right: 0; }
+}
