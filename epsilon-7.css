@@ -1,0 +1,95 @@
+:root {
+  --miosotis: #5b8fd6;
+  --miosotis-escuro: #2d5190;
+  --nevoa: #e9eefa;
+  --papel: #fbfcff;
+  --centro: #f4cf4a;
+  --tinta: #1f2a40;
+  --fonte-titulo: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --fonte-texto: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  min-height: 100vh;
+  /* miosótis espalhados: miolo amarelo e pétalas azuis, bem suaves */
+  background:
+    radial-gradient(circle at 24px 24px, var(--centro) 0 2.5px, transparent 3px),
+    radial-gradient(circle at 24px 24px, rgba(91, 143, 214, 0.55) 0 9px, transparent 10px),
+    radial-gradient(circle at 104px 88px, var(--centro) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 104px 88px, rgba(91, 143, 214, 0.4) 0 7px, transparent 8px),
+    linear-gradient(to bottom, #c9d8f2, var(--nevoa));
+  background-size: 140px 130px, 140px 130px, 140px 130px, 140px 130px, auto;
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+a { color: var(--miosotis-escuro); font-weight: 600; }
+a:hover { color: #14305f; }
+a:focus-visible { outline: 3px solid var(--miosotis-escuro); outline-offset: 2px; }
+
+.voltar { max-width: 800px; margin: 0 auto 12px; font-size: 0.9rem; }
+.voltar a { color: #14305f; }
+
+/* Painel de papel claro cujas bordas se dissolvem, como uma lembrança que se apaga */
+.painel {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 44px 44px;
+  background: var(--papel);
+  border-radius: 18px;
+  box-shadow: 0 0 0 10px rgba(251, 252, 255, 0.55), 0 0 0 22px rgba(251, 252, 255, 0.25), 0 12px 30px rgba(45, 81, 144, 0.25);
+}
+
+.cabecalho { text-align: center; margin-bottom: 24px; }
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--centro), 0 0 0 7px var(--miosotis);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 7.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--miosotis-escuro);
+}
+h1 span { display: block; margin-top: 6px; font-style: italic; color: var(--miosotis); font-size: 0.75em; }
+
+h2 {
+  margin: 34px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px dotted var(--miosotis);
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--miosotis-escuro);
+}
+
+p { max-width: 66ch; margin: 0 0 1em; }
+.missao { margin-inline: auto; }
+
+.entradas { margin: 12px 0 0; padding-left: 1.25rem; columns: 3 150px; column-gap: 28px; line-height: 1.5; }
+.entradas li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--miosotis); }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.8rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 10px 32px; }
+  .painel { padding: 28px 20px 32px; border-radius: 12px; box-shadow: 0 0 0 6px rgba(251, 252, 255, 0.5), 0 8px 20px rgba(45, 81, 144, 0.25); }
+}

@@ -1,0 +1,102 @@
+:root {
+  --celeiro: #6e2a20;
+  --celeiro-escuro: #4a1a14;
+  --feno: #f3e6bf;
+  --tinta: #2a1d14;
+  --tocha: #e8742a;
+  --tocha-escura: #a8470f;
+  --fonte-titulo: "Bevan", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Lora", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  min-height: 100vh;
+  /* tábuas verticais de madeira de celeiro */
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.28) 0 3px, transparent 3px 72px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 36px, transparent 36px 72px),
+    var(--celeiro);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+a { color: var(--tocha-escura); font-weight: 600; }
+a:hover { color: var(--celeiro-escuro); }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--celeiro-escuro); outline-offset: 2px; }
+
+.voltar { max-width: 820px; margin: 0 auto 12px; font-size: 0.9rem; }
+.voltar a { color: var(--feno); }
+.voltar a:hover { color: #fff; }
+
+/* Cartaz de feno pregado no celeiro: borda tracejada como costura, sombra de papel */
+.painel {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 38px 44px 42px;
+  background: var(--feno);
+  border: 3px solid var(--celeiro-escuro);
+  outline: 2px dashed var(--tocha-escura);
+  outline-offset: -14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+.cabecalho { text-align: center; margin-bottom: 24px; }
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--tocha), 0 0 24px rgba(232, 116, 42, 0.5);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.9rem, 7vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--celeiro);
+}
+h1 span { display: block; margin-top: 6px; color: var(--tocha-escura); font-size: 0.75em; }
+
+h2 {
+  margin: 34px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--celeiro);
+  font-family: var(--fonte-titulo);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--celeiro);
+}
+
+p { max-width: 66ch; margin: 0 0 1em; }
+.missao { margin-inline: auto; }
+
+summary { cursor: pointer; color: var(--tocha-escura); font-weight: 600; width: fit-content; }
+summary:hover { text-decoration: underline; }
+details > summary .fechar { display: none; }
+details[open] > summary .abrir { display: none; }
+details[open] > summary .fechar { display: inline; }
+
+.entradas, .relatorios { margin: 12px 0 0; padding-left: 1.25rem; line-height: 1.5; }
+.entradas { columns: 4 130px; column-gap: 24px; }
+.entradas li, .relatorios li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--tocha); }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.8rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 8px 32px; }
+  .painel { padding: 28px 22px 32px; }
+}

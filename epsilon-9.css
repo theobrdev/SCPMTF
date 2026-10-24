@@ -1,0 +1,111 @@
+:root {
+  --carvao: #120c0a;
+  --painel: #1d1310;
+  --linha: #4a2418;
+  --amarelo: #ffc83d;
+  --laranja: #ff7a1a;
+  --vermelho: #e0341b;
+  --texto: #f2e6dc;
+  --fonte-titulo: "Staatliches", "Arial Narrow", Impact, sans-serif;
+  --fonte-texto: "Rubik", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  min-height: 100vh;
+  /* calor subindo do chão: vermelho no fundo, carvão no alto */
+  background:
+    linear-gradient(to top, rgba(224, 52, 27, 0.45), rgba(255, 122, 26, 0.12) 180px, transparent 360px) bottom / 100% 100% no-repeat fixed,
+    var(--carvao);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+a { color: var(--amarelo); }
+a:hover { color: #fff; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 2px; }
+
+.voltar { max-width: 840px; margin: 0 auto 12px; font-size: 0.9rem; }
+
+/* Painel de carvão com borda de brasa em degradê */
+.painel {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 38px 44px 42px;
+  background: var(--painel);
+  border: 4px solid transparent;
+  border-image: linear-gradient(to bottom, var(--amarelo), var(--laranja) 45%, var(--vermelho)) 1;
+  box-shadow: 0 0 44px rgba(255, 122, 26, 0.25);
+}
+
+.cabecalho { text-align: center; margin-bottom: 24px; }
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--laranja), 0 0 30px rgba(255, 122, 26, 0.65);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.4rem, 9vw, 4rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: var(--laranja);
+}
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  h1 {
+    background: linear-gradient(to bottom, var(--amarelo), var(--laranja) 55%, var(--vermelho));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+h1 span { display: block; margin-top: 6px; font-size: 0.75em; }
+
+h2 {
+  margin: 34px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--linha);
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--amarelo);
+}
+
+p { max-width: 68ch; margin: 0 0 1em; }
+.missao { margin-inline: auto; }
+
+summary { cursor: pointer; color: var(--amarelo); font-weight: 600; width: fit-content; }
+summary:hover { text-decoration: underline; }
+details > summary .fechar { display: none; }
+details[open] > summary .abrir { display: none; }
+details[open] > summary .fechar { display: inline; }
+
+.entradas, .relatorios { margin: 12px 0 0; padding-left: 1.25rem; line-height: 1.5; }
+.entradas { columns: 3 150px; column-gap: 28px; }
+.entradas li, .relatorios li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--laranja); }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.8rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 0 32px; }
+  .voltar { padding: 0 16px; }
+  .painel { padding: 28px 20px 30px; border-left: 0; border-right: 0; }
+}
