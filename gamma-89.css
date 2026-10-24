@@ -1,0 +1,101 @@
+:root {
+  --granito: #2e2a27;
+  --calcario: #efe9dd;
+  --ocre: #c58a3a;
+  --ferrugem: #a1482a;
+  --arenito: #d9b98a;
+  --xisto: #5d6770;
+  --tinta: #25211e;
+  --fonte-titulo: "Zilla Slab", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Hind", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  min-height: 100vh;
+  background: var(--granito);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+a { color: var(--ferrugem); font-weight: 600; }
+a:hover { color: var(--tinta); }
+a:focus-visible { outline: 3px solid var(--ocre); outline-offset: 2px; }
+
+.voltar { max-width: 820px; margin: 0 auto 12px; font-size: 0.9rem; }
+.voltar a { color: var(--arenito); }
+.voltar a:hover { color: #fff; }
+
+.painel {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--calcario);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Camadas de rocha sedimentar no topo, em faixas de espessuras diferentes */
+.estratos {
+  height: 56px;
+  background: linear-gradient(to bottom,
+    var(--xisto) 0 8px,
+    var(--arenito) 8px 20px,
+    var(--ferrugem) 20px 27px,
+    var(--ocre) 27px 41px,
+    #7d5a3c 41px 47px,
+    var(--granito) 47px 56px);
+}
+
+.conteudo { padding: 28px 44px 40px; }
+
+.cabecalho { text-align: center; margin-bottom: 24px; }
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--ocre);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 7.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+h1 span { display: block; margin-top: 6px; color: var(--ferrugem); font-weight: 600; font-size: 0.6em; }
+
+h2 {
+  margin: 32px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 4px double var(--xisto);
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+p { max-width: 68ch; margin: 0 0 1em; }
+.missao { margin-inline: auto; }
+
+.entradas, .relatorios { margin: 12px 0 0; padding-left: 1.25rem; line-height: 1.5; }
+.entradas { columns: 3 150px; column-gap: 28px; }
+.entradas li, .relatorios li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--ocre); }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.8rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 0 32px; }
+  .voltar { padding: 0 16px; }
+  .conteudo { padding: 22px 20px 30px; }
+}

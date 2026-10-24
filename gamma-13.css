@@ -1,0 +1,108 @@
+:root {
+  --fundo: #c9d3dc;
+  --aco: #26485f;
+  --aco-escuro: #1a3345;
+  --creme: #f6eed9;
+  --vermelho: #cf3a2c;
+  --tinta: #1d252c;
+  --fonte-titulo: "Archivo Black", "Arial Black", Impact, sans-serif;
+  --fonte-texto: "Barlow", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  min-height: 100vh;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+a { color: var(--aco); font-weight: 600; }
+a:hover { color: var(--vermelho); }
+a:focus-visible { outline: 3px solid var(--vermelho); outline-offset: 2px; }
+
+.voltar { max-width: 840px; margin: 0 auto 12px; font-size: 0.9rem; }
+.voltar a { color: var(--aco-escuro); }
+
+/* Capa de revista de ficção científica: cabeçalho azul-aço, corpo creme, listras vermelha e azul na base */
+.painel {
+  max-width: 840px;
+  margin: 0 auto;
+  background: var(--creme);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border-bottom: 18px solid var(--aco);
+  position: relative;
+}
+.painel::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -18px;
+  height: 6px;
+  background: var(--vermelho);
+  transform: translateY(-6px);
+}
+
+.cabecalho {
+  padding: 32px 44px 28px;
+  text-align: center;
+  background: var(--aco);
+  color: var(--creme);
+  border-bottom: 6px solid var(--vermelho);
+}
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--creme);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.9rem, 7vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+h1 span { display: block; margin-top: 8px; font-size: 0.6em; color: #ffd9a8; }
+
+.corpo { padding: 28px 44px 34px; }
+
+h2 {
+  margin: 30px 0 8px;
+  padding-left: 12px;
+  border-left: 8px solid var(--vermelho);
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--aco-escuro);
+}
+
+p { max-width: 68ch; margin: 0 0 1em; }
+.missao { margin-top: 0; }
+
+.entradas, .relatorios { margin: 12px 0 0; padding-left: 1.25rem; line-height: 1.5; }
+.entradas { columns: 3 150px; column-gap: 28px; }
+.entradas li, .relatorios li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--vermelho); }
+.relatorios ul { margin: 6px 0 12px; padding-left: 1.5rem; }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.8rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 0 32px; }
+  .voltar { padding: 0 16px; }
+  .cabecalho { padding: 26px 20px 22px; }
+  .corpo { padding: 22px 20px 28px; }
+}

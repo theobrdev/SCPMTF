@@ -1,0 +1,107 @@
+:root {
+  --ceu: #6f9fc4;
+  --gelo: #cfe8f6;
+  --neve: #f7fbfe;
+  --glacial: #1d5f8f;
+  --glacial-escuro: #123e5f;
+  --tinta: #17283a;
+  --fonte-titulo: "Marcellus", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Nunito", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  min-height: 100vh;
+  /* flocos de neve caindo sobre um céu de inverno */
+  background:
+    radial-gradient(3px 3px at 30px 40px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 2px at 110px 150px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(4px 4px at 190px 90px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(2px 2px at 250px 200px, rgba(255, 255, 255, 0.85), transparent),
+    linear-gradient(to bottom, var(--ceu), #b9d6ea 60%, #e8f2f9);
+  background-size: 280px 240px, 280px 240px, 280px 240px, 280px 240px, auto;
+  background-attachment: fixed;
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+a { color: var(--glacial); font-weight: 700; }
+a:hover { color: var(--glacial-escuro); }
+a:focus-visible { outline: 3px solid var(--glacial-escuro); outline-offset: 2px; }
+
+.voltar { max-width: 820px; margin: 0 auto 12px; font-size: 0.9rem; }
+.voltar a { color: var(--glacial-escuro); }
+
+.painel {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--neve);
+  box-shadow: 0 10px 30px rgba(18, 62, 95, 0.3);
+}
+
+/* Beirada de gelo: faixa azul-clara com pontas como pingentes */
+.gelo {
+  height: 30px;
+  background:
+    linear-gradient(135deg, var(--neve) 25%, transparent 25%) -9px 0 / 18px 18px,
+    linear-gradient(225deg, var(--neve) 25%, transparent 25%) -9px 0 / 18px 18px,
+    linear-gradient(to bottom, var(--gelo) 0, var(--gelo) 12px, transparent 12px);
+  background-repeat: repeat-x;
+  background-position: -9px 12px, -9px 12px, 0 0;
+}
+
+.conteudo { padding: 12px 44px 40px; }
+
+.cabecalho { text-align: center; margin-bottom: 24px; }
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--gelo), 0 0 0 6px var(--glacial);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 7.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--glacial-escuro);
+}
+h1 span { display: block; margin-top: 6px; color: var(--glacial); font-size: 0.7em; }
+
+h2 {
+  margin: 32px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--gelo);
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--glacial-escuro);
+}
+
+p { max-width: 68ch; margin: 0 0 1em; }
+.missao { margin-inline: auto; }
+
+.entradas { margin: 12px 0 0; padding-left: 1.25rem; columns: 3 150px; column-gap: 28px; line-height: 1.5; }
+.entradas li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--glacial); }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.8rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 0 32px; }
+  .voltar { padding: 0 16px; }
+  .conteudo { padding: 8px 20px 30px; }
+}

@@ -1,0 +1,93 @@
+:root {
+  --fundo: #26324a;
+  --papel: #efe3c6;
+  --tinta: #1b1612;
+  --azul: #22345f;
+  --vermelho: #9c2a24;
+  --fonte-titulo: "Old Standard TT", Georgia, "Times New Roman", serif;
+  --fonte-texto: "Libre Baskerville", Georgia, "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  min-height: 100vh;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+a { color: var(--azul); }
+a:hover { color: var(--vermelho); }
+a:focus-visible { outline: 3px solid var(--vermelho); outline-offset: 2px; }
+
+.voltar { max-width: 820px; margin: 0 auto 12px; font-size: 0.9rem; }
+.voltar a { color: #dfe4ee; }
+.voltar a:hover { color: #fff; }
+
+/* Cartaz impresso do século XVIII: papel envelhecido e filetes pretos */
+.painel {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 40px 48px 44px;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(255, 255, 255, 0.4), transparent 65%),
+    var(--papel);
+  border: 4px double var(--tinta);
+  outline: 1px solid var(--tinta);
+  outline-offset: 5px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+}
+
+.cabecalho { text-align: center; margin-bottom: 26px; padding-bottom: 20px; border-bottom: 3px double var(--tinta); }
+
+.logo {
+  display: block;
+  width: 150px;
+  max-width: 40%;
+  height: auto;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--azul);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 7.5vw, 3.3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+h1 span { display: block; margin-top: 6px; color: var(--vermelho); font-weight: 400; font-style: italic; }
+
+h2 {
+  margin: 32px 0 8px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--azul);
+  text-align: center;
+}
+h2::before, h2::after { content: "\2605"; margin: 0 0.6em; font-size: 0.7em; color: var(--vermelho); vertical-align: 0.1em; }
+
+p { max-width: 64ch; margin: 0 auto 1em; text-align: justify; hyphens: auto; }
+
+.entradas, .relatorios { margin: 12px 0 0; padding-left: 1.5rem; line-height: 1.55; }
+.entradas { columns: 3 150px; column-gap: 28px; }
+.entradas li, .relatorios li { break-inside: avoid; margin-bottom: 4px; }
+li::marker { color: var(--vermelho); }
+.relatorios ul { margin: 6px 0 12px; padding-left: 1.5rem; }
+
+.topo { margin: 32px 0 0; text-align: right; font-size: 0.8rem; max-width: none; }
+
+@media (max-width: 600px) {
+  body { padding: 12px 10px 32px; }
+  .painel { padding: 28px 22px 32px; }
+  p { text-align: left; }
+}
